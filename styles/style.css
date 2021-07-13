@@ -21,6 +21,13 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+.container{
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+
 a{
     display: inline-block;
     text-decoration: none;
@@ -53,12 +60,6 @@ header{
     top: 0;
 }
 
-.header-container{
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
 nav{
     display: flex;
     justify-content: space-between;
@@ -83,7 +84,7 @@ nav ul{
 }
 
 #active{
-    border-bottom: 4px solid #FFFFFF;
+    border-bottom: 4px solid var(--accent-color);
     color: #FFFFFF;
 }
 
@@ -91,7 +92,7 @@ nav ul li a{
     margin-left: 30px;
     padding: 15px 0;
     color: #DDDDDD;
-    transition: all 0.4s ease;
+    transition: all 0.2s ease;
 }
 
 nav ul li a:hover{
@@ -107,22 +108,52 @@ nav span a{
     margin-right: 30px;
 }
 
-nav span a:hover{
+nav span a:hover , main section a:hover{
     border-color: #FFFFFF;
     color: #FFFFFF !important;
 }
 
 /* Main Section Styles */
 main{
-    min-height: 200vh;
-    
+    background: var(--primary-color);
+}
+
+main .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 80px;
+}
+
+main section h2{
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 80px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+main section img{
+    width: 560px;
+    transition: transform 0.4s ease-in;
+}
+
+main .container:hover img{
+    transform: scale(1.05);
 }
 
 /* Media Queries */
 
 /* Tablet Devices */
 @media screen and (max-width: 992px) {
-    
+    main .container{
+        flex-direction: column;
+    }
+
+    main section img{
+        margin-top: 50px;
+    }
 }
 
 /* Mobile Devices */
