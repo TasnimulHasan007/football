@@ -5,8 +5,11 @@
 :root{
     --primary-color: rgb(45, 37, 160);
     --accent-color: rgb(224, 44, 109);
-    --heading-color: rgb(24, 25, 31);
+    --heading-color: rgb(10, 8, 38);
+    --sub-heading-color: rgb(24, 25, 31);
     --text-color: rgb(108, 108, 108);
+    --footer-icons: rgb(150, 155, 171);
+    --icon-bg: rgba(11, 13, 23, 0.1);
 }
 
 /* Global Styles */
@@ -20,7 +23,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.header-container , .banner{
+.header-container , .banner , .highlights{
     max-width: 1160px;
     margin: 0 auto;
     padding: 30px 0;
@@ -66,15 +69,16 @@ nav{
 }
 
 nav .fa-bars{
-    color: #FFFFFF;
+    color: var(--accent-color);
     font-size: 30px;
     margin-left: 30px;
     transition: color 0.4s ease;
+    cursor: pointer;
     display: none;
 }
 
 nav .fa-bars:hover{
-    color: #DDDDDD;
+    color: #FFFFFF;
 }
 
 nav ul{
@@ -107,7 +111,7 @@ nav span a{
     margin-right: 30px;
 }
 
-nav span a:hover , main section a:hover{
+nav span a:hover , .banner section a:hover{
     border-color: #FFFFFF;
     color: #FFFFFF !important;
 }
@@ -115,12 +119,13 @@ nav span a:hover , main section a:hover{
 /* Main Section Styles */
 
 /* Banner Styles */
-main .banner{
+.banner{
     background: var(--primary-color);
     max-width: 100vw;
+    padding: 0 30px;
 }
 
-main .container{
+.banner .container{
     max-width: 1160px;
     display: flex;
     justify-content: space-between;
@@ -130,7 +135,7 @@ main .container{
     margin: 0 auto;
 }
 
-main section h2{
+.banner section h2{
     font-size: 64px;
     font-weight: 700;
     line-height: 80px;
@@ -138,14 +143,16 @@ main section h2{
     margin-bottom: 30px;
 }
 
-main section img{
+.banner section img{
     width: 560px;
+    max-width: 100%;
+    padding: 0 30px;
     transition: transform 0.4s ease-in;
     z-index: 1;
 }
 
-main .banner:hover .section-2 > img{
-    transform: scale(1.05);
+.banner:hover .section-2 > img{
+    transform: rotate(5deg);
 }
 
 /* Players Style */
@@ -171,7 +178,7 @@ main .banner:hover .section-2 > img{
     font-size: 28px;
     font-weight: 700;
     margin: 15px 0;
-    color: var(--heading-color);
+    color: var(--sub-heading-color);
 }
 
 .player p{
@@ -186,26 +193,103 @@ main .banner:hover .section-2 > img{
     width: 300px;
 }
 
+/* Highlights Style */
+.highlights{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.highlights h2{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+    color: var(--heading-color);
+}
+
+.highlights p{
+    margin: 15px 30px 30px 0;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--text-color);
+}
+
+.highlights a{
+    margin-bottom: 30px;
+}
+
+.highlights img{
+    width: 560px;
+}
+
+/* Footer Section Styles */
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 30px;
+}
+
+footer img{
+    width: 480px;
+}
+
+footer a{
+    color: var(--footer-icons);
+    background: var(--icon-bg);
+    font-size: 16px;
+    padding: 10px;
+    margin: 20px 0;
+    clip-path: circle();
+    transition: color 0.4s ease;
+}
+
+footer a:hover{
+    color: #000000;
+}
+
+footer p{
+    font-size: 18px;
+}
+
 /* Media Queries */
 
 /* Tablet Devices */
 @media screen and (max-width: 992px) {
-    main .container{
-        flex-direction: column;
-    }
-
-    main section img{
-        margin-top: 50px;
-    }
-}
-
-/* Mobile Devices */
-@media screen and (max-width: 688px) {
     nav ul{
         display: none;
     }
 
     nav .fa-bars{
         display: inline-block;
+    }
+
+    main .container , .highlights{
+        flex-direction: column;
+    }
+
+    .banner section img{
+        margin-top: 50px;
+    }
+
+    .players{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 688px) {
+    .players{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .highlights{
+        margin: 0 30px;
+    }
+
+    .highlights img{
+        max-width: 100%;
     }
 }
