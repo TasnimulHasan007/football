@@ -47,7 +47,7 @@ ul li{
     box-shadow: inset -1000px 0 0 0 var(--accent-color);
     padding: 10px 30px;
     border: 3px solid var(--accent-color);
-    transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in-out;
 }
 
 .button:hover{
@@ -273,7 +273,7 @@ nav span a:hover , .banner section a:hover{
 #final-result{
     max-width: 760px;
     min-height: 380px;
-    background: url(../images/score-bg.png) no-repeat center center/cover;
+    background: radial-gradient(100% 200% at left,var(--accent-color) 50%,var(--primary-color) 50.1%) no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
